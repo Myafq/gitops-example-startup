@@ -1,0 +1,17 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-redis-master
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: kubernetes/redis-master/overlays/prod
+    repoURL: https://github.com/Myafq/gitops-example-startup.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}

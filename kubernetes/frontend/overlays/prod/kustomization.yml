@@ -1,0 +1,8 @@
+bases:
+  - ../base/
+commonLabels:
+  env: prod
+
+replicas:
+- name: frontend
+  count: 3
